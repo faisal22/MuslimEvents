@@ -1,0 +1,39 @@
+package com.muslimevents;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
+
+public class Events extends Activity implements OnItemClickListener {
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.events, menu);
+		return true;
+	}
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Intent myIntent = new Intent(Events.this, EventActivity.class);
+		myIntent.putExtra("name", "Ovais");
+		startActivity(myIntent);
+		
+	}
+	ListView orgListView;
+	String Orgs[] = {"Star Wars"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        orgListView = (ListView) this.findViewById(R.id.orgList);
+        orgListView.setAdapter(new ArrayAdapter<String>(Events.this, android.R.layout.simple_list_item_1, Orgs));
+        orgListView.setOnItemClickListener(this);
+    }
+
+}

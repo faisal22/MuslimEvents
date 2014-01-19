@@ -18,21 +18,23 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:text="@string/description"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
+        android:layout_marginTop="84dp"
         android:text="@string/start_time"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="36dp"
+        android:text="@string/description"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -41,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView01"
         android:layout_below="@+id/TextView01"
+        android:layout_marginTop="44dp"
         android:text="@string/end_time"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -50,47 +53,57 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView02"
         android:layout_below="@+id/TextView02"
+        android:layout_marginTop="42dp"
         android:text="@string/location"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/theTitle"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
-        android:layout_toRightOf="@+id/textView1" />
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="TextView"
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/theEndTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView01"
+        android:layout_alignBaseline="@+id/TextView02"
+        android:layout_alignBottom="@+id/TextView02"
         android:layout_toRightOf="@+id/textView2"
-        />
+        android:text="TextView"
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/startTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView02"
-        android:layout_toRightOf="@+id/TextView01"
-        />
-
-    <TextView
-        android:id="@+id/endTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView03"
-        android:layout_toRightOf="@+id/TextView02"
-        />
-
-    <TextView
-        android:id="@+id/location"
+        android:id="@+id/theLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/TextView03"
         android:layout_alignBottom="@+id/TextView03"
-        android:layout_toRightOf="@+id/TextView03"
-        />
+        android:layout_toRightOf="@+id/TextView01"
+        android:text="TextView"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/theDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/theStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView02"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textSize="18sp" />
 
 </RelativeLayout>

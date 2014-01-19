@@ -1,0 +1,71 @@
+package com.muslimevents;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
+
+public class Events extends Activity implements OnItemClickListener{
+	AsyncHttpClient client = new AsyncHttpClient();
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.events, menu);
+		return true;
+	}
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Intent myIntent = new Intent(Events.this, EventActivity.class);
+		myIntent.putExtra("name", "Ovais");
+		startActivity(myIntent);
+		
+	}
+	ListView orgListView;
+	String hackyEventTitles[];
+	Object hackyObjects[];
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        String id = this.getIntent().getExtras().getString("id");
+        int masjid_id = Integer.parseInt(id);
+        orgListView = (ListView) this.findViewById(R.id.orgList);
+        client.get("http://muslimevents.herokuapp.com/events/nearyby?city=Richardson", new JsonHttpResponseHandler(){
+			@Override
+			public void onSuccess(int statusCode, JSONArray response) {
+				hackyEventTitles = new String[response.length()];
+				hackyObjects = new Object[response.length()];
+				for(int i=0; i < response.length(); i++){
+					try {
+						JSONObject info = response.getJSONObject(i);
+						hackyNames[i] = info.getString("name");
+						hackyIds[i] = info.getString("id");
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+		        orgListView.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, hackyNames));
+		        orgListView.setOnItemClickListener(MainActivity.this);
+			}
+        }
+        
+        
+    }
+
+}

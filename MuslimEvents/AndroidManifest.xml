@@ -8,6 +8,8 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="19" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -25,6 +27,14 @@
         <activity
             android:name="com.muslimevents.Events"
             android:label="@string/title_activity_events" >
+        </activity>
+        <activity
+            android:name="com.muslimevents.EventActivity"
+            android:label="@string/title_activity_event" >
+        </activity>
+        <activity
+            android:name="com.muslimevents.AddEventActivity"
+            android:label="@string/title_activity_add_event" >
         </activity>
     </application>
 
